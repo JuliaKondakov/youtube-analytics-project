@@ -19,7 +19,7 @@ def printj(dict_to_print: dict) -> None:
 
 
 '''
-получить данные о канале по его id
+Homework 1  получить данные о канале по его id
 docs: https://developers.google.com/youtube/v3/docs/channels/list
 
 сервис для быстрого получения id канала: https://commentpicker.com/youtube-channel-id.php
@@ -31,6 +31,7 @@ printj(channel)
 
 
 '''
+Homework 2
 получить данные по play-листам канала
 docs: https://developers.google.com/youtube/v3/docs/playlists/list
 '''
