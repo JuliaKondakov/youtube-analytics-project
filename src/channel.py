@@ -5,6 +5,7 @@ from googleapiclient.discovery import build                         # функц
 
 class Channel:
 
+    subscriber_count: int = 0
     api_key = os.getenv('YT_API_KEY')                               # значение переменной api_key получено из переменных окружения.
 
     youtube = build('youtube', 'v3', developerKey=api_key)          # build() указывают на ключ разработчика
@@ -69,3 +70,36 @@ class Channel:
     def to_json(self, filename):
         with open(filename, 'w', encoding='utf-8') as file:
             json.dump(self.__dict__, file, ensure_ascii=False, indent=4)
+
+    """
+        Добавьте в класс Channel метод __str__, 
+        возвращающий название и ссылку на канал по шаблону <название_канала> (<ссылка_на_канал>)
+        Реалузуйте возможность складывать / вычитать / сравнивать два канала между собой.
+    """
+
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        return self.subscriber_count + other.subscriber_count
+
+    def __sub__(self, other):
+        return self.subscriber_count - other.subscriber_count
+
+    def __lt__(self, other):
+        return self.subscriber_count < other.subscriber_count
+
+    def __le__(self, other):
+        return self.subscriber_count <= other.subscriber_count
+
+    def __eq__(self, other):
+        return self.subscriber_count == other.subscriber_count
+
+    def __ne__(self, other):
+        return self.subscriber_count != other.subscriber_count
+
+    def __gt__(self, other):
+        return self.subscriber_count > other.subscriber_count
+
+    def __ge__(self, other):
+        return self.subscriber_count >= other.subscriber_count
