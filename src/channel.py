@@ -7,7 +7,6 @@ class Channel:
 
     subscriber_count: int = 0
     api_key = os.getenv('YT_API_KEY')                               # значение переменной api_key получено из переменных окружения.
-
     youtube = build('youtube', 'v3', developerKey=api_key)          # build() указывают на ключ разработчика
     """
        Атрибуты Класс для работы с каналом YouTube.
